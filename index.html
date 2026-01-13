@@ -14,8 +14,20 @@
             background-color: #F8E5B8;
             background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0V0zm20 20h20v20H20V20z' fill='%23B8860B' fill-opacity='0.2'/%3E%3C/svg%3E");
         }
-        .stamp-anim { animation: stamp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-        @keyframes stamp { 0% { transform: scale(3); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        /* Efecto de Sello */
+        .stamp-effect {
+            border: 3px double #8B0000;
+            color: #8B0000;
+            padding: 10px;
+            display: inline-block;
+            transform: rotate(-5deg);
+            mask-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+            animation: stampAnim 0.3s ease-out;
+        }
+        @keyframes stampAnim {
+            0% { transform: scale(2) rotate(15deg); opacity: 0; }
+            100% { transform: scale(1) rotate(-5deg); opacity: 1; }
+        }
     </style>
 </head>
 <body class="bg-[#2F3E2E] flex items-center justify-center min-h-screen p-4">
@@ -31,42 +43,34 @@
 
                 <p class="font-typewriter text-xs text-emerald-800 font-bold tracking-widest uppercase">Nuestro pequeño explorador</p>
                 <h1 class="font-wood text-4xl text-[#5D4037] my-3">Matías Ethan</h1>
-                <p class="font-typewriter text-[10px] text-orange-800 font-bold mb-6">CELEBRA SU PRIMER AÑO DE VIDA</p>
-
-                <div class="border-y border-dashed border-[#8B4513] py-4 mb-6 space-y-3">
-                    <div class="flex items-center justify-center gap-2 text-[#5D4037] font-wood text-sm">
+                
+                <div class="border-y border-dashed border-[#8B4513] py-4 mb-6">
+                    <div class="flex items-center justify-center gap-2 text-[#5D4037] font-wood text-sm mb-2">
                         <i data-lucide="map-pin" class="w-4 h-4"></i> Casa Blanca - Pachacamac
                     </div>
-                    <div class="flex justify-around text-xs font-typewriter">
-                        <span>📅 17/01/2026</span>
-                        <span>🕓 4:00 PM</span>
-                    </div>
+                    <div class="text-[10px] font-typewriter text-[#8B4513]">SÁBADO 17 DE ENERO, 2026 | 4:00 PM</div>
                 </div>
 
-                <div class="bg-white/50 p-3 rounded-lg mb-6 border border-emerald-100">
-                    <p class="font-typewriter text-[10px] text-[#5D4037]">
-                        <strong class="text-emerald-800">DRESS CODE:</strong><br>
-                        ¡Safari, animal print o tonos tierra! 🌿🦒
-                    </p>
-                </div>
-
-                <button onclick="confirmarWhatsApp()" class="block w-full bg-[#6F4E37] text-white font-wood py-3 rounded-xl shadow-lg hover:bg-[#5D4037] transition-all mb-8">
+                <button onclick="confirmarWhatsApp()" class="block w-full bg-[#6F4E37] text-white font-wood py-3 rounded-xl shadow-lg mb-8">
                     CONFIRMAR ASISTENCIA
                 </button>
 
-                <div class="border-2 border-dashed border-[#8B4513] p-4 rounded bg-white/80">
-                    <p class="font-typewriter text-[10px] mb-2">¡Genera tu credencial de explorador!</p>
-                    <input type="text" id="nombreInvitado" placeholder="Tu nombre..." class="w-full p-2 mb-2 border-b border-[#8B4513] bg-transparent font-typewriter text-center uppercase text-sm focus:outline-none">
-                    <button onclick="generarPasaporte()" class="w-full bg-emerald-700 text-white font-typewriter text-xs py-2 rounded">GENERAR</button>
+                <div class="bg-white/90 border-2 border-[#8B4513] p-4 rounded-lg shadow-inner">
+                    <h3 class="font-wood text-[#5D4037] text-sm mb-3 underline">PASAPORTE DE EXPEDICIÓN</h3>
+                    <input type="text" id="nombreInvitado" placeholder="ESCRIBE TU NOMBRE" class="w-full p-2 mb-3 bg-transparent border-b border-[#8B4513] font-typewriter text-center text-sm focus:outline-none uppercase">
                     
-                    <div id="resultadoPasaporte" class="hidden mt-4 p-2 border-2 border-red-800 text-red-800 font-wood stamp-anim">
-                        <p class="text-[10px] uppercase">Rango: Explorador Jefe</p>
-                        <h4 id="nombreFinal"></h4>
-                        <p class="text-[8px] mt-1 italic">Misión: ¡Celebrar a Matías!</p>
+                    <button onclick="generarPasaporte()" class="bg-emerald-800 text-white font-typewriter text-[10px] px-4 py-2 rounded-full mb-4">OBTENER SELLO</button>
+                    
+                    <div id="areaSello" class="hidden py-4 border-t border-dashed border-[#8B4513]">
+                        <div class="stamp-effect">
+                            <p class="font-typewriter text-[9px] font-bold uppercase" id="rangoExplorador"></p>
+                            <p class="font-wood text-lg uppercase my-1" id="nombreFinal"></p>
+                            <p class="font-typewriter text-[8px] italic" id="mensajeMision"></p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="mt-6 flex justify-center gap-4 text-3xl">🦁🦒🐘</div>
+                <div class="mt-6 flex justify-center gap-4 text-3xl opacity-80">🦁🦒🐘</div>
             </div>
         </div>
     </div>
@@ -75,17 +79,31 @@
         lucide.createIcons();
 
         function confirmarWhatsApp() {
-            const numero = "51951391845"; // REEMPLAZA CON TU NÚMERO
-            const mensaje = encodeURIComponent("¡Hola! Confirmo mi asistencia al Safari de Matías Ethan 🦁. ¡Ahí nos vemos!");
+            const numero = "51951391845"; 
+            const mensaje = encodeURIComponent("¡Hola! Confirmo mi asistencia al Safari de Matías Ethan 🦁.");
             window.open(`https://wa.me/${numero}?text=${mensaje}`, '_blank');
         }
 
         function generarPasaporte() {
             const nombre = document.getElementById('nombreInvitado').value;
-            if (nombre.trim() === "") return alert("Por favor ingresa tu nombre");
-            
+            if (nombre.trim() === "") return alert("¡Explorador! Necesitamos tu nombre para el pasaporte.");
+
+            const rangos = [
+                { r: "Guía de Expedición", m: "Misión: Liderar la caravana" },
+                { r: "Fotógrafo de Vida Silvestre", m: "Misión: Capturar los mejores momentos" },
+                { r: "Ranger del Safari", m: "Misión: Cuidar a los animales" },
+                { r: "Explorador de Élite", m: "Misión: Encontrar el tesoro de Matías" },
+                { r: "Rastreador Experto", m: "Misión: Seguir las huellas del León" }
+            ];
+
+            const aleatorio = rangos[Math.floor(Math.random() * rangos.length)];
+
             document.getElementById('nombreFinal').textContent = nombre;
-            document.getElementById('resultadoPasaporte').classList.remove('hidden');
+            document.getElementById('rangoExplorador').textContent = aleatorio.r;
+            document.getElementById('mensajeMision').textContent = aleatorio.m;
+            
+            const area = document.getElementById('areaSello');
+            area.classList.remove('hidden');
         }
     </script>
 </body>
