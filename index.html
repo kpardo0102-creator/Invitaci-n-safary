@@ -13,7 +13,7 @@
         
         body { 
             background-color: #1a2e1a; 
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 86c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm66 3c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM37 17c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232d4a2d' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3z' fill='%232d4a2d' fill-opacity='0.4'/%3E%3C/svg%3E");
         }
 
         .safari-card {
@@ -35,53 +35,45 @@
             transform: rotate(-10deg);
             animation: stampAnim 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
+
         @keyframes stampAnim {
             0% { transform: scale(5) rotate(20deg); opacity: 0; }
             100% { transform: scale(1) rotate(-10deg); opacity: 1; }
         }
-
-        .animal-bounce:hover { transform: scale(1.2) translateY(-10px); transition: all 0.3s; }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen p-4 overflow-x-hidden font-typewriter">
+<body class="flex items-center justify-center min-h-screen p-4 overflow-x-hidden">
 
     <div class="leaf-float text-3xl" style="left: 5%; animation-delay: 0s;">🌿</div>
     <div class="leaf-float text-2xl" style="left: 85%; animation-delay: 3s;">🍃</div>
-    <div class="leaf-float text-3xl" style="left: 50%; animation-delay: 5s;">🌿</div>
 
     <div class="max-w-md w-full safari-card rounded-[50px] overflow-hidden relative">
         <div class="bg-[#3d2b1f] p-4 text-center">
-            <span class="font-wood text-[#FFD700] text-xl tracking-widest uppercase">¡Aventura en Pachacamac!</span>
+            <span class="font-wood text-[#FFD700] text-xl tracking-widest uppercase">¡Expedición Pachacamac!</span>
         </div>
 
         <div class="p-8">
             <div class="text-center mb-6">
-                <p class="text-orange-800 font-bold text-xs tracking-widest mb-2 uppercase">Primer Año de Expedición</p>
+                <p class="text-orange-800 font-bold text-xs tracking-widest mb-1 uppercase font-typewriter">Primer Año de Vida</p>
                 <h1 class="font-wood text-5xl text-[#3d2b1f] mb-1">Matías Ethan</h1>
-                <div class="w-24 h-1 bg-emerald-700 mx-auto mt-2"></div>
+                <div class="w-24 h-1 bg-emerald-700 mx-auto"></div>
             </div>
 
-            <div class="space-y-4 bg-white/40 p-6 rounded-3xl border-2 border-dashed border-[#3d2b1f]/30 mb-8">
-                <div class="flex items-center gap-4">
-                    <div class="bg-emerald-800 p-2 rounded-lg text-white"><i data-lucide="map-pin"></i></div>
-                    <div>
-                        <p class="text-[10px] text-gray-500 uppercase font-bold">Ubicación</p>
-                        <p class="text-sm font-bold text-[#3d2b1f]">Casa Blanca - Pachacamac</p>
-                    </div>
+            <div class="bg-white/50 p-6 rounded-3xl border-2 border-dashed border-[#3d2b1f]/30 mb-8 font-typewriter">
+                <div class="flex items-center gap-4 mb-4">
+                    <i data-lucide="map-pin" class="text-emerald-800"></i>
+                    <p class="text-sm font-bold text-[#3d2b1f]">Casa Blanca - Pachacamac</p>
                 </div>
                 <div class="flex items-center gap-4">
-                    <div class="bg-orange-700 p-2 rounded-lg text-white"><i data-lucide="calendar"></i></div>
-                    <div>
-                        <p class="text-[10px] text-gray-500 uppercase font-bold">Fecha y Hora</p>
-                        <p class="text-sm font-bold text-[#3d2b1f]">17 de Enero, 2026 | 4:00 PM</p>
-                    </div>
+                    <i data-lucide="calendar" class="text-orange-700"></i>
+                    <p class="text-sm font-bold text-[#3d2b1f]">17 de Enero, 2026 | 4:00 PM</p>
                 </div>
             </div>
 
-            <div class="bg-[#e9e1d4] p-6 rounded-[35px] border-2 border-[#3d2b1f] shadow-inner text-center">
-                <h2 class="font-wood text-[#3d2b1f] mb-4">Registro de Explorador</h2>
+            <div class="bg-[#e9e1d4] p-6 rounded-[35px] border-2 border-[#3d2b1f] text-center shadow-inner">
+                <h2 class="font-wood text-[#3d2b1f] mb-4 text-lg">REGISTRO DE EXPLORADOR</h2>
                 <input type="text" id="nombreInvitado" placeholder="TU NOMBRE" 
-                       class="w-full bg-white border-2 border-[#3d2b1f] p-3 rounded-xl mb-4 text-center focus:ring-4 ring-emerald-200 outline-none uppercase text-sm font-bold shadow-sm">
+                       class="w-full bg-white border-2 border-[#3d2b1f] p-3 rounded-xl mb-4 text-center font-typewriter outline-none uppercase text-sm font-bold">
                 
                 <button onclick="generarPasaporte()" 
                         class="w-full bg-[#3d2b1f] text-[#FFD700] py-4 rounded-xl font-wood text-lg shadow-lg active:scale-95 transition-all">
@@ -89,23 +81,17 @@
                 </button>
 
                 <div id="resultadoPasaporte" class="hidden mt-8">
-                    <div class="stamp p-4 inline-block relative overflow-hidden">
-                        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-                        <p class="text-[9px] font-bold text-[#8b0000] mb-1 uppercase tracking-tighter" id="rango"></p>
+                    <div class="stamp p-4 inline-block font-typewriter">
+                        <p class="text-[9px] font-bold text-[#8b0000] mb-1 uppercase" id="rango"></p>
                         <h4 class="text-2xl font-wood text-[#8b0000] border-y-2 border-[#8b0000]/30 py-1" id="nombre"></h4>
-                        <p class="text-[10px] italic mt-1 font-bold text-[#8b0000]">MISIÓN: ¡CELEBRAR A MATÍAS!</p>
-                        <div class="mt-2 text-[12px] font-bold">SAFARI APPROVED ✓</div>
+                        <p class="text-[10px] italic mt-1 font-bold text-[#8b0000]">MISIÓN: CELEBRAR A MATÍAS</p>
                     </div>
                 </div>
             </div>
 
-            <div class="flex justify-around mt-8 grayscale hover:grayscale-0 transition-all">
-                <span class="text-5xl animal-bounce cursor-pointer">🦁</span>
-                <span class="text-5xl animal-bounce cursor-pointer">🦒</span>
-                <span class="text-5xl animal-bounce cursor-pointer">🐘</span>
+            <div class="flex justify-around mt-8 text-5xl opacity-80">
+                <span>🦁</span><span>🦒</span><span>🐘</span>
             </div>
-            
-            <p class="text-center text-[10px] text-gray-500 mt-6 italic">Trae tu mejor ropa safari o tonos tierra 🌿</p>
         </div>
     </div>
 
@@ -114,28 +100,14 @@
 
         function generarPasaporte() {
             const nombreInput = document.getElementById('nombreInvitado');
-            const result = document.getElementById('resultadoPasaporte');
-            
-            if(nombreInput.value.trim() === "") {
-                alert("¡Explorador! Identifícate para entrar al safari.");
-                return;
-            }
+            if(nombreInput.value.trim() === "") return alert("¡Explorador! Identifícate.");
 
-            const rangos = [
-                "Guía de Jungla",
-                "Ranger de Élite",
-                "Explorador Real",
-                "Fotógrafo Pro",
-                "Rastreador Jefe"
-            ];
-
+            const rangos = ["Guía de Jungla", "Ranger de Élite", "Rastreador Jefe", "Fotógrafo Pro", "Explorador Real"];
             const aleatorio = rangos[Math.floor(Math.random() * rangos.length)];
             
             document.getElementById('nombre').textContent = nombreInput.value;
             document.getElementById('rango').textContent = "RANGO: " + aleatorio;
-            
-            result.classList.remove('hidden');
-            result.scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('resultadoPasaporte').classList.remove('hidden');
         }
     </script>
 </body>
